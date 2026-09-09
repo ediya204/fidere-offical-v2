@@ -2,30 +2,33 @@
 
 Record updated: 2026-09-09 (Asia/Hong_Kong).
 
-## Current three-language SEO release — deployed and verified
+## Current complete three-language website release — deployed and verified
 
 The deployed source and static export support English, Traditional Chinese and Arabic.
 They contain 117 content/access-assistance pages, with 114 indexable Sitemap URLs
 (38 per language). Simplified Chinese is temporarily redirected to Traditional Chinese.
-**This release was deployed at approximately 12:19 HKT on 9 September 2026.**
+**This release was deployed at approximately 13:19 HKT on 9 September 2026.**
 Build, static SEO, localhost HTTP and production validation results are recorded below.
 
 | Field | Current release status |
 | --- | --- |
 | Pages project | `fideretrust` |
-| Deployment ID | `addf2556-d2c7-4b43-be21-f758ff6f7d9d` |
-| Immutable deployment URL | [https://addf2556.fideretrust.pages.dev](https://addf2556.fideretrust.pages.dev) |
-| Deployment time | Approximately 2026-09-09 12:19 HKT |
-| Build ID | `zLQ8bKHMdxlnHmLtLcCQO` |
+| Deployment ID | `74f310b3-cb55-41e2-9746-6920e4588c7b` |
+| Immutable deployment URL | [https://74f310b3.fideretrust.pages.dev](https://74f310b3.fideretrust.pages.dev) |
+| Deployment time | Approximately 2026-09-09 13:19 HKT |
+| Deployed Git source | [`4a23ad35202b05f6b7526e04617d6e1d88914e79`](https://github.com/ediya204/fidere-offical-v2/commit/4a23ad35202b05f6b7526e04617d6e1d88914e79) |
+| Build ID | `Qzojjab6lVt_-pMP7_zZc` |
 | Final three-language build | `npm run cf:build` PASS; 121 static routes, including 117 content/access-assistance pages |
 | Static SEO acceptance | `npm run seo:validate` PASS; 117 pages, 39 per language, 117 unique titles and descriptions, 114 Sitemap URLs |
-| Local HTTP acceptance | `validate-arabic.mjs` PASS; 117/117 pages and 114 Sitemap URLs |
+| Local static and Arabic acceptance | `validate-arabic.mjs --offline` PASS; 750 dictionary keys, 117 prerendered pages and zero failures; separate HTTP smoke checks passed |
 | Production Sitemap acceptance | PASS; 114 unique URLs, no `zh-hans` or Login |
 | Public HTML acceptance | PASS; all 117 `www` pages HTTP 200, metadata checks passed for 117/117 |
-| Redirects and unknown paths | PASS; six legacy entries return correct 308 targets, Simplified root/deep URLs return 302, unknown paths return 404 |
+| Redirects and unknown paths | PASS; six legacy entries return correct 308 targets, Simplified root/deep URLs return 302, and English/Traditional Chinese/Arabic unknown paths return the branded true-404 page |
 | Canonical host redirect | PASS; active Cloudflare Single Redirect sends HTTPS apex to the same `www` path with 301, preserving query parameters |
 | Pages indexing headers | PASS; Pages main/version hosts include `noindex, nofollow`; neither `www` nor apex has that response header |
 | Customer-portal navigation | PASS; approved URL, new-window target and rel attributes verified; production browser reported no errors |
+| Branded 404 behavior | PASS; `noindex, nofollow`, immediate return, five-second language-home return and cancel behavior verified in production |
+| DNS and custom domains | No changes in this release; existing `fideretrust.com`, `www` and Pages bindings were retained |
 | Search Console ownership | VERIFIED; domain property `sc-domain:fideretrust.com` through Cloudflare Domain Connect DNS provider verification |
 | Search Console Sitemap | SUCCESS; submitted and last read 9 Sept 2026, 114 discovered pages and 0 videos |
 
@@ -35,11 +38,14 @@ access-assistance pages, six historical service redirects, Pages-domain indexing
 restrictions and completed Web App Manifest fields. Desktop/mobile customer login
 opens the user-approved `https://portal.fideretrust.com` in a new window or tab;
 local `/login` pages remain noindex assistance pages.
+The release also includes the generated three-language branded 404. Its initial
+response remains a true HTTP 404 before the optional client-side return to the
+matching language homepage.
 
 Detailed results and reproducible commands are in [seo-validation.md](seo-validation.md).
-The local evidence files are `artifacts/seo/validation.json` (checked at 12:22:57 HKT)
-and `artifacts/arabic-i18n/validation.json` (checked at 12:17:28 HKT); both identify
-Build ID `zLQ8bKHMdxlnHmLtLcCQO`. The SEO report confirms one Organization schema,
+The local evidence files are `artifacts/seo/validation.json` (checked at 13:24:20 HKT)
+and `artifacts/arabic-i18n/validation.json` (checked at 13:23:57 HKT); both identify
+Build ID `Qzojjab6lVt_-pMP7_zZc`. The SEO report confirms one Organization schema,
 one WebSite schema and 75 BreadcrumbList schemas, with no failures.
 
 Remote asset SHA-256 values matched the local files:
@@ -98,6 +104,14 @@ this release.
 At the read-only production audit on 2026-09-09 12:01–12:04 HKT, the production
 Sitemap still had 152 entries and Simplified Chinese pages still returned 200. This
 is evidence of the previous four-language deployment, not proof of this release.
+
+## Superseded three-language deployment snapshot
+
+The earlier three-language SEO deployment was published at approximately 12:19 HKT
+with deployment ID `addf2556-d2c7-4b43-be21-f758ff6f7d9d`, immutable URL
+`https://addf2556.fideretrust.pages.dev` and Build ID `zLQ8bKHMdxlnHmLtLcCQO`.
+It was replaced by the current Git-linked deployment after the final branded 404
+and remaining local updates were included.
 
 ## Historical deployment snapshot — previous four-language release
 

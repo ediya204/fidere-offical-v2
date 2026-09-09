@@ -163,7 +163,7 @@ Insights 的三篇内容是为本次网站撰写的原创教育指南，主题�
 
 ## 当前交付边界
 
-本轮三语技术 SEO 与客户门户入口已于 **2026-09-09 约12:19 HKT** 发布到 Cloudflare Pages，部署 ID 为 `addf2556-d2c7-4b43-be21-f758ff6f7d9d`。生产117个页面及元数据检查通过，Sitemap 为114个唯一 URL；构建、静态 SEO、本地 HTTP、重定向及响应头证据见 [部署记录](docs/cloudflare-deployment.md) 和 [SEO 验证](docs/seo-validation.md)。历史部署及 DNS 变更证据仍保留。
+本轮全部网站更新已于 **2026-09-09 约13:19 HKT** 发布到 Cloudflare Pages，部署 ID 为 `74f310b3-cb55-41e2-9746-6920e4588c7b`，不可变地址为 [74f310b3.fideretrust.pages.dev](https://74f310b3.fideretrust.pages.dev)，对应 GitHub 源代码提交为 [`4a23ad3`](https://github.com/ediya204/fidere-offical-v2/commit/4a23ad35202b05f6b7526e04617d6e1d88914e79)。生产117个页面及元数据检查通过，Sitemap 为114个唯一 URL；构建、静态 SEO、本地 HTTP、重定向、品牌 404 及响应头证据见 [部署记录](docs/cloudflare-deployment.md) 和 [SEO 验证](docs/seo-validation.md)。本次发布没有修改 DNS 或自定义域名配置，历史部署及 DNS 变更证据仍保留。
 
 Cloudflare 已启用 `Canonical apex to www` 规则，HTTPS apex 以301跳转至 `https://www.fideretrust.com` 的相同路径并保留查询参数；HTTP apex 先升级到 HTTPS，再转至 `www`，最终目标200。规则 ID 和验收示例见 [部署记录](docs/cloudflare-deployment.md)。
 
@@ -175,7 +175,7 @@ Search Console 域名资源 `sc-domain:fideretrust.com` 已通过 Cloudflare Dom
 
 ## 本次白底内页改版验收
 
-当前预览：http://127.0.0.1:3000/zh-hant 。
+当前线上版本：[https://www.fideretrust.com/zh-hant](https://www.fideretrust.com/zh-hant)；本地预览：http://127.0.0.1:3000/zh-hant 。
 
 - [参考站访问清单](docs/reference-public-inventory.md)
 - [页面映射与内容依据](docs/reference-page-map.md)
@@ -185,4 +185,4 @@ Search Console 域名资源 `sc-domain:fideretrust.com` 已通过 Cloudflare Dom
 
 同尺寸截图与完整页面位于 `artifacts/visual-validation/`（本地证据，不纳入 Git）；`python3 scripts/create-visual-comparisons.py` 可重建并排及叠加图。
 
-阿拉伯语接入、759 条共享翻译、历史156页四语言回归与截图见 [阿拉伯语国际化验证](docs/arabic-internationalization.md)。该四语数量属于历史阶段；当前源码为英文、繁体、阿拉伯语，共117页、114个 Sitemap URL，最新 SEO 状态以 [技术 SEO 验证](docs/seo-validation.md) 为准。
+阿拉伯语接入、当前750条共享翻译、历史156页四语言回归与截图见 [阿拉伯语国际化验证](docs/arabic-internationalization.md)。该四语数量属于历史阶段；当前源码为英文、繁体、阿拉伯语，共117页、114个 Sitemap URL，最新 SEO 状态以 [技术 SEO 验证](docs/seo-validation.md) 为准。

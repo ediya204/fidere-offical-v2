@@ -1,6 +1,6 @@
 # 三语技术 SEO 实现与验证
 
-记录日期：2026-09-09（Asia/Hong_Kong）。**本轮状态：已发布，构建、静态 SEO、本地 HTTP 和生产验收通过；Search Console 所有权已验证，Sitemap 已成功提交。** 部署时间约12:19 HKT，部署 ID `addf2556-d2c7-4b43-be21-f758ff6f7d9d`，不可变地址为 [addf2556.fideretrust.pages.dev](https://addf2556.fideretrust.pages.dev)，Build ID 为 `zLQ8bKHMdxlnHmLtLcCQO`。这些结果证明本轮发布、技术检查及 Sitemap 提交完成，不表示页面已经被搜索引擎收录。
+记录日期：2026-09-09（Asia/Hong_Kong）。**本轮状态：全部网站更新已发布，构建、静态 SEO、本地 HTTP 和生产验收通过；Search Console 所有权已验证，Sitemap 已成功提交。** 部署时间约13:19 HKT，部署 ID `74f310b3-cb55-41e2-9746-6920e4588c7b`，不可变地址为 [74f310b3.fideretrust.pages.dev](https://74f310b3.fideretrust.pages.dev)，Build ID 为 `Qzojjab6lVt_-pMP7_zZc`，部署源代码为 GitHub 提交 [`4a23ad3`](https://github.com/ediya204/fidere-offical-v2/commit/4a23ad35202b05f6b7526e04617d6e1d88914e79)。这些结果证明本轮发布、技术检查及 Sitemap 提交完成，不表示页面已经被搜索引擎收录。
 
 ## 当前范围
 
@@ -31,12 +31,12 @@ SEO 数据来自 `src/lib/metadata.ts`、`src/lib/site.ts`、`src/app/sitemap.ts
 | Pages 域名规则 | 15组静态域名/路径匹配通过；生产 Pages 主域及本轮版本域均含 `X-Robots-Tag: noindex, nofollow`，`www`/apex 没有该响应头。 |
 | 主域规范跳转 | Cloudflare 活动 Single Redirect `Canonical apex to www`（ID `931ca02666e746ea88977bccb963517d`）已部署；HTTPS apex 相同路径/查询参数301至 `www`，目标200。HTTP apex 先301至 HTTPS apex，完整跟随最终 `www` 200。 |
 | Manifest 与配置检查 | JSON、语言和根路径有效；两张图标实际尺寸为192×192、512×512，MIME 与声明相符；`eslint next.config.ts` 通过。 |
-| 本轮最终构建 | `npm run cf:build` 成功，121个静态路由（含框架及搜索引擎入口），其中117个业务/协助页；Build ID 为 `zLQ8bKHMdxlnHmLtLcCQO`。 |
-| 静态 SEO | `npm run seo:validate` PASS：117页，三语各39页，117个唯一 title 与117个唯一 description，114个 Sitemap URL；Organization 1、WebSite 1、BreadcrumbList 75，零失败。结果：`artifacts/seo/validation.json`，检查时间12:22:57 HKT。 |
-| 本地 HTTP 与阿语 | `scripts/validate-arabic.mjs` PASS：117/117页面、114个 Sitemap URL、759个字典键，零失败。结果：`artifacts/arabic-i18n/validation.json`，检查时间12:17:28 HKT；同一 Build ID。 |
-| 本轮生产页面与浏览器 | `www` 的117/117页面均 HTTP200，117/117元数据检查通过，Sitemap 114项且唯一；门户链接地址、target/rel正确，生产浏览器无错误。 |
+| 本轮最终构建 | `npm run cf:build` 成功，121个静态路由（含框架及搜索引擎入口），其中117个业务/协助页；Build ID 为 `Qzojjab6lVt_-pMP7_zZc`。 |
+| 静态 SEO | `npm run seo:validate` PASS：117页，三语各39页，117个唯一 title 与117个唯一 description，114个 Sitemap URL；Organization 1、WebSite 1、BreadcrumbList 75，零失败。结果：`artifacts/seo/validation.json`，检查时间13:24:20 HKT。 |
+| 本地 HTTP 与阿语 | `scripts/validate-arabic.mjs --offline` PASS：117个预渲染页面、750个字典键、零失败；另外对三语首页、私人信托详情和品牌 404 做了本地 HTTP 抽查，状态、`lang` 与 `dir` 正确。结果：`artifacts/arabic-i18n/validation.json`，检查时间13:23:57 HKT；同一 Build ID。 |
+| 本轮生产页面与浏览器 | `www` 的117/117页面均 HTTP200，117/117元数据检查通过，Sitemap 114项且唯一；门户链接地址、target/rel正确。三语未知路径均返回品牌页面、真实 HTTP 404 与 `noindex, nofollow`，自动返回、立即返回及取消均已验证；生产浏览器无错误。 |
 | 静态品牌资源 | 远程 favicon 和首页 hero 的 SHA-256 均与本地一致，完整值见部署记录。 |
-| 本轮生产部署 | `addf2556-d2c7-4b43-be21-f758ff6f7d9d`，约12:19 HKT；详见 [cloudflare-deployment.md](cloudflare-deployment.md)。 |
+| 本轮生产部署 | `74f310b3-cb55-41e2-9746-6920e4588c7b`，约13:19 HKT，源代码提交 `4a23ad35202b05f6b7526e04617d6e1d88914e79`；本次没有修改 DNS 或自定义域名配置。详见 [cloudflare-deployment.md](cloudflare-deployment.md)。 |
 
 旧的四语言156页面/152 Sitemap 记录保留于历史文档，不用于证明当前三语版本通过。原始未前缀根 canonical 有无末尾 `/` 应按 URL 语义归一化；`zh-Hant` 的大小写标准化也不应误报为不同语言。
 
@@ -142,7 +142,7 @@ curl -sS -D - -o /dev/null https://www.fideretrust.com/en/personal-trust
 curl -sS -D - -o /dev/null https://www.fideretrust.com/en/family-office
 curl -sS -D - -o /dev/null https://www.fideretrust.com/en/corporate-clients
 curl -sS -D - -o /dev/null https://fideretrust.pages.dev/ar
-curl -sS -D - -o /dev/null https://addf2556.fideretrust.pages.dev/ar
+curl -sS -D - -o /dev/null https://74f310b3.fideretrust.pages.dev/ar
 curl -sS -D - -o /dev/null https://www.fideretrust.com/ar
 curl -sS -D - -o /dev/null https://fideretrust.com/ar
 curl -sS -D - -o /dev/null 'https://fideretrust.com/zh-hant/solutions?source=seo'
@@ -157,7 +157,7 @@ curl -sS https://www.fideretrust.com/sitemap.xml
 1. 117个正式内容/协助页直接200；114个 Sitemap URL 无重复、无失效、无简体或 Login；各页 canonical/hreflang 与三语输出一致。
 2. 六个新增旧入口直接308至规范详情页，目标200；`/zh-hans` 及子路径临时跳转并保留目标路径与查询参数；常规 `/en`、其他旧别名、`.html` 和尾斜杠规范化不产生循环。
 3. 三个 Login 返回200和 meta `noindex`；Pages 主域与版本域有 `noindex, nofollow`，正式域响应不能继承此限制。
-4. 未知页面返回真实404。当前本地静态导出会生成三语品牌404，并按路径同步 HTML `lang`/`dir`；五秒客户端回首页不改变初始HTTP 404。该改动尚未重新发布，线上验收仍须复查不可变 Pages 地址与 `www`。
+4. 未知页面返回真实 HTTP 404，并渲染三语品牌 404；页面按路径同步 HTML `lang`/`dir`，五秒客户端回首页不改变初始 HTTP 404。本轮已在不可变部署地址、Pages 主域与正式 `www` 域重新验证，并在生产浏览器验证立即返回、自动返回及取消行为。
 5. 桌面/移动浏览器确认客户登录入口打开指定外部地址的新窗口/标签页，保留当前官网页面；不输入账户资料、不把门户加载等同于认证通过。
 6. HTML 中正文、内页链接及翻译无需登录即可读取；图片、字体、favicon、manifest MIME 与缓存正常，hashed 静态文件仍使用 immutable 缓存。
 7. **主域规范跳转已完成：** 活动 Single Redirect `Canonical apex to www` 匹配 `https://fideretrust.com/*`，301到 `https://www.fideretrust.com/${1}`，保留 query。规则 ID 为 `931ca02666e746ea88977bccb963517d`。已验证 `/zh-hant/solutions?source=seo` 和 `/ar?source=seo` 的 HTTPS apex 请求均301至 `www` 同路径、同查询参数，目标200；HTTP apex 先301至 HTTPS apex，完整跟随最终 `www` 200。此前 apex 直接200的重复入口边界已关闭。此规则在 Cloudflare 层执行，独立于源码 canonical 和 Pages 部署产物。
