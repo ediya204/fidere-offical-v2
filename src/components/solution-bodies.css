@@ -1,0 +1,60 @@
+@layer reset, base, components, responsive, reference;
+@layer components {
+ .trust-introduction { display:grid;grid-template-columns:1fr 1.15fr;gap:40px 9%;align-items:start; }
+ .trust-introduction>.section-label { grid-column:1/-1;margin:0; }
+ .trust-introduction h2 { font-size:clamp(46px,4.3vw,66px); }
+ .trust-introduction p { font-size:19px;line-height:1.9;color:var(--muted); }
+ .trust-relationship { padding-block:100px; }
+ .trust-role-grid { display:grid;grid-template-columns:repeat(3,1fr);gap:60px;margin-top:75px; }
+ .trust-role-grid article { border-top:1px solid #ffffff35;padding-top:28px; }
+ .trust-role-grid h3 { font-size:42px;margin-block:24px; }
+ .trust-role-grid p { color:#ced5d7;font-size:15px;max-width:320px; }
+ .trust-relationship .legal-note { margin-top:55px;color:#b6c1c6; }
+ .capability-rows article { display:grid;grid-template-columns:45px 1fr 1.05fr;gap:40px;padding-block:38px;border-top:1px solid var(--line); }
+ .capability-rows h3 { font-size:36px;max-width:410px; }
+ .capability-rows p { font-size:15px;color:var(--muted); }
+ .solution-context { display:grid;grid-template-columns:1fr 1.15fr;gap:9%;padding-bottom:70px; }
+ .solution-context h2 { font-size:50px; }
+ .solution-context p { color:var(--muted);font-size:16px; }
+ .solution-considerations { display:grid;grid-template-columns:1fr 2fr;gap:9%;padding-block:90px;border-top:1px solid var(--line); }
+ .solution-considerations h2 { font-size:46px;margin-bottom:26px; }
+ .solution-considerations p { color:var(--muted);font-size:15px; }
+ .family-introduction { display:grid;grid-template-columns:1.2fr 1fr;gap:12%; }
+ .family-introduction h2 { font-size:60px; }
+ .family-introduction p { font-size:15px;color:var(--muted);margin-bottom:24px; }
+ .family-introduction p.body-large { font-size:21px; }
+ .family-wide-image { height:520px;min-height:0; }
+ .family-scope { display:grid;grid-template-columns:1fr 1.15fr;gap:12%; }
+ .family-scope aside { position:sticky;top:200px;align-self:start; }
+ .family-scope h2 { font-size:52px; }
+ .family-scope article { padding-block:32px 40px;border-top:1px solid var(--line); }
+ .family-scope article h3 { font-size:38px;margin-block:22px; }
+ .family-scope article p { color:var(--muted);font-size:15px; }
+ .corporate-scope { background:#eeeee7; }
+ .corporate-due-diligence { display:flex;align-items:center;justify-content:space-between;gap:30px;padding-top:55px; }
+ .transaction-scope { padding-top:0; }
+ .transaction-sequence { list-style:none;padding:0;margin:0 0 0 25%; }
+ .transaction-sequence li { position:relative;display:grid;grid-template-columns:65px 1fr;gap:35px;border-top:1px solid var(--line);padding:42px 0; }
+ .transaction-sequence li>span { font:42px/1.2 var(--serif);color:var(--red); }
+ .transaction-sequence h3 { font-size:38px;margin-bottom:22px; }
+ .transaction-sequence p { max-width:680px;color:var(--muted);font-size:16px; }
+ .succession-intro { max-width:1140px;text-align:center; }
+ .succession-intro>.section-label { justify-content:center; }
+ .succession-intro h2 { font-size:76px;margin-bottom:40px; }
+ .succession-intro p { max-width:730px;margin-inline:auto;font-size:19px;color:var(--muted); }
+ .governance-solution { padding-top:0;display:grid;grid-template-columns:1fr 2fr;gap:8%; }
+ .solution-considerations[id],.solution-context[id],.trust-introduction[id],.family-introduction[id],.family-scope[id],.transaction-scope[id],.succession-intro[id],.corporate-scope[id],.governance-solution[id] {scroll-margin-top:75px;}
+}
+@layer responsive {
+ @media(max-width:900px){.family-introduction,.family-scope{gap:7%}.capability-rows article{gap:25px}.capability-rows h3{font-size:30px}.family-introduction h2{font-size:48px}.trust-role-grid{gap:30px}.trust-role-grid h3{font-size:35px}.solution-context h2{font-size:42px}.family-scope h2{font-size:42px}}
+ @media(max-width:600px){
+ .trust-introduction,.family-introduction,.family-scope,.solution-context,.solution-considerations,.governance-solution{grid-template-columns:1fr;gap:35px}
+ .trust-introduction h2,.family-introduction h2,.family-scope h2,.solution-context h2,.succession-intro h2{font-size:43px}
+ .trust-introduction p,.family-introduction p.body-large,.succession-intro p{font-size:17px}
+ .trust-role-grid{grid-template-columns:1fr;gap:34px;margin-top:50px}.trust-role-grid article{display:grid;grid-template-columns:25px 1fr;gap:18px}.trust-role-grid h3{font-size:36px;margin:0}.trust-role-grid p{grid-column:2;font-size:14px}.trust-relationship{padding-block:75px}.trust-relationship h2{font-size:43px}
+ .capability-rows article{grid-template-columns:24px 1fr;gap:17px;padding-block:28px}.capability-rows h3{font-size:31px}.capability-rows p{grid-column:2;font-size:14px}
+ .family-wide-image{height:310px}.family-scope aside{position:static}.family-scope article h3{font-size:33px}.family-scope article p,.family-introduction p,.solution-context p{font-size:14px}
+ .solution-considerations{padding-block:68px}.solution-considerations h2{font-size:39px}.solution-considerations p{font-size:14px}.solution-considerations .section-label{margin-bottom:0}
+ .corporate-due-diligence{display:block}.corporate-due-diligence h3{font-size:29px}.transaction-sequence{margin:0}.transaction-sequence li{grid-template-columns:35px 1fr;gap:24px;padding-block:30px}.transaction-sequence li>span{font-size:32px}.transaction-sequence h3{font-size:30px}.transaction-sequence p{font-size:14px}.succession-intro{text-align:left}.succession-intro>.section-label{justify-content:start}.governance-solution{padding-top:0}
+ }
+}

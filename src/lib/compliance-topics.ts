@@ -1,0 +1,9 @@
+export type ComplianceTopicCopy = readonly [string, string, string];
+export const complianceTopics: { slug: string; title: ComplianceTopicCopy; description: ComplianceTopicCopy }[] = [
+  { slug: "aml-ctf", title: ["AML / CTF", "反洗錢及反恐融資", "反洗钱及反恐融资"], description: ["FIDERE’s risk-based framework for client due diligence, beneficial ownership verification, transaction monitoring and escalation.", "FIDERE 以風險為本的框架，涵蓋客戶盡職審查、實益擁有人核實、交易監察及上報。", "FIDERE 以风险为本的框架，涵盖客户尽职调查、实益拥有人核实、交易监测及上报。"] },
+  { slug: "client-due-diligence", title: ["Client Due Diligence", "客戶盡職審查", "客户尽职调查"], description: ["An introduction to individual and corporate onboarding information, ownership records and FIDERE’s document review requirements.", "了解個人與企業客戶開戶資料、所有權記錄及 FIDERE 的文件審查要求。", "了解个人与企业客户开户资料、所有权记录及 FIDERE 的文件审查要求。"] },
+  { slug: "source-of-funds", title: ["Source of Funds & Wealth", "資金與財富來源", "资金与财富来源"], description: ["How information about the origin of funds and wealth supports FIDERE’s understanding of a client and the proposed activity.", "了解資金與財富來源資料如何協助 FIDERE 認識客戶及擬進行的活動。", "了解资金与财富来源资料如何协助 FIDERE 认识客户及拟进行的活动。"] },
+  { slug: "sanctions-screening", title: ["Sanctions Screening", "制裁篩查", "制裁筛查"], description: ["The scope of sanctions, watchlist, politically exposed person and adverse-media checks within FIDERE’s risk assessment.", "FIDERE 風險評估中，制裁、觀察名單、政治人物及負面報道審查的範圍。", "FIDERE 风险评估中，制裁、观察名单、政治人物及负面报道审查的范围。"] },
+  { slug: "ongoing-monitoring", title: ["Ongoing Monitoring", "持續監察", "持续监测"], description: ["How ownership changes, business activity and transaction behaviour inform ongoing review of FIDERE client relationships.", "了解所有權變更、業務活動及交易行為如何影響 FIDERE 客戶關係的持續覆核。", "了解所有权变更、业务活动及交易行为如何影响 FIDERE 客户关系的持续复核。"] },
+];
+export const complianceTopicSlugs = complianceTopics.map((topic) => topic.slug);

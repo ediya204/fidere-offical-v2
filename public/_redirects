@@ -1,0 +1,15 @@
+/en / 308
+/zh-hans /zh-hant 302
+/zh-hans/* /zh-hant/:splat 302
+/services /solutions 308
+/asset-management /wealth-management 308
+/solutions/equity-custody /solutions/equity-asset-custody 308
+/zh-hant/solutions/equity-custody /zh-hant/solutions/equity-asset-custody 308
+/ar/solutions/equity-custody /ar/solutions/equity-asset-custody 308
+/personal-trust /solutions/private-trust 308
+/family-office /solutions/family-office 308
+/corporate-clients /solutions/corporate-trust 308
+/en/personal-trust /solutions/private-trust 308
+/en/family-office /solutions/family-office 308
+/en/corporate-clients /solutions/corporate-trust 308
+/en/* /:splat 308

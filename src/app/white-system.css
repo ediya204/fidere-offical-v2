@@ -1,0 +1,106 @@
+@layer reset, base, components, responsive, reference;
+/* Structural surfaces stay white. Photographic heroes retain the measured
+   full-height composition instead of being divided into image and text bands. */
+@layer reference {
+  :root { --paper: #fff; --white: #fff; --line: #d9d7d3; }
+  body { background: white; }
+  .related-solutions { background: white; border-top: 1px solid var(--line); }
+  @media (max-width: 1100px) { :root { --header-height: 95px; --header-offset: 95px; } }
+  .dark-section,.topic-regulatory-panel,.topic-screening-aside,.topic-approach-note,.topic-emphasis,.corporate-scope { background: white; color: var(--ink); border-block: 1px solid var(--line); }
+  .dark-section p,.dark-section .prose p,.topic-regulatory-grid p,.topic-screening-aside p,.trust-role-grid p,.trust-relationship .legal-note { color: var(--muted); }
+  main:not(:has(.home-hero)) .dark-section .section-label,.dark-section .section-label,.dark-section .section-index,.dark-section .arrow { color: var(--red); }
+  .topic-regulatory-grid .topic-licence { color: var(--navy); }
+  .trust-role-grid article { border-top-color: var(--line); }
+  .topic-screening-aside { padding: 2.5rem; border: 1px solid var(--line); }
+  .chapter-nav { background: white; color: var(--ink); border-block: 1px solid var(--line); }
+  .chapter-desktop a[aria-current=location] { border-bottom-color: var(--red); }
+  .chapter-desktop a:hover { color: var(--red); }
+  .chapter-mobile > summary span:first-child { color: var(--muted); }
+  .chapter-mobile a { border-color: var(--line); }
+  .chapter-mobile a[aria-current=location] { color: var(--red); }
+  main:not(:has(.home-hero)) .cta-editorial,
+  main:not(:has(.home-hero)) .page-hero { background: white; }
+
+  /* Preserve the image area and title baseline of the institutional opening. */
+  @media (min-width: 768px) { html[lang=en] main .institution-hero h1 { font-size: 4.375rem; } }
+  .institution-hero > img { object-position: center 42%; }
+  .business-hero > img { object-position: center; }
+  .advisory-hero > img { object-position: center 45%; }
+
+  /* The extra local chapter navigation occupies the first section's whitespace,
+     so it does not push that section below the measured reference position. */
+  :is(.institution-hero,.advisory-hero,.business-hero) + .chapter-nav + .section {
+    padding-top: max(2rem, calc(var(--section) - var(--chapter-height) - 2px));
+  }
+
+  /* Collection pages adopt the reference's 39/61 split, not a corporate card grid. */
+  main:not(:has(.home-hero)) .solution-collection > .service-group { display: grid; grid-template-columns: 39% 61%; padding: 0; border-top: 1px solid var(--line); }
+  .solution-collection .service-group > .section-heading { position: sticky; top: calc(var(--header-offset) + var(--chapter-height)); align-self: start; display: block; margin: 0; padding: 5rem 2rem 5rem max(2.5rem, calc((100vw - 70rem) / 2)); }
+  main .solution-collection .service-group .section-heading h2 { font-size: 2.25rem; line-height: 1.3; }
+  main .solution-collection .service-group .section-heading p { font-size: 1rem; line-height: 1.67; }
+  .collection-content { padding: 5rem max(2.5rem, calc((100vw - 80rem) / 2)) 4rem 2rem; border-left: 1px solid var(--line); }
+  .collection-image.image-reveal { height: 23rem; min-height: 0; margin-bottom: 2.5rem; }
+  .collection-entries .service-entry.editorial-row { grid-template-columns: 1fr 7rem; gap: 1rem 2rem; padding-block: 2rem; }
+  main .collection-entries .service-entry .row-title { font: 400 2rem/1.2 var(--serif); }
+  .collection-entries .service-entry .row-copy { grid-column: 1; font-size: 1rem; line-height: 1.67; }
+  .collection-entries .service-entry .text-link { grid-column: 2; grid-row: 1 / 3; }
+  .collection-eligibility { padding-block: 2rem; border-top: 1px solid var(--line); }
+  .collection-eligibility .legal-note { max-width: none; }
+
+  .wealth-introduction .prose { max-width: 60.5rem; }
+  main .wealth-introduction h2 { font-size: 2rem; line-height: 1.2; margin-bottom: 1.5rem; }
+  main .wealth-introduction .prose p.body-large { font-size: 1rem; line-height: 1.67; }
+  .wealth-overview { display: grid; grid-template-columns: 28.3fr 68.9fr; gap: 2rem; align-items: start; }
+  .wealth-overview nav { display: flex; flex-direction: column; }
+  .wealth-overview nav .text-link { width: 100%; border-bottom: 1px solid var(--line); padding-block: 1.5rem; font: 600 1.125rem/1.2 var(--sans); }
+  .wealth-overview > .image-reveal { min-height: 0; height: 32rem; }
+  main .wealth-market-register .row-title { font-size: 2rem; }
+  .wealth-market-register .editorial-row { grid-template-columns: 2.5rem 1fr 1.25fr; gap: 2rem; padding-block: 2rem; }
+  .wealth-market-register .row-copy { font-size: 1rem; line-height: 1.67; }
+  .topic-arrow { font-size: .7em; color: var(--red); }
+
+  .topic-methods { border-left: 1px solid var(--line); padding-left: 2rem; }
+  .topic-methods li { position: relative; }
+  .topic-methods li::before { content: ""; position: absolute; left: -2.28rem; top: 2.65rem; width: .5rem; height: .5rem; border: 1px solid var(--red); background: white; border-radius: 50%; }
+  .topic-policy-context { background: white; }
+  .topic-regulatory-grid > div + div { border-color: var(--line); }
+  .topic-governance-heading { max-width: none; }
+  main:not(:has(.home-hero)) .topic-governance-heading { max-width: 75rem; }
+  main:not(:has(.home-hero)) .contact-layout { padding-top: 3rem; }
+  main:has(.contact-layout) .page-hero { padding-bottom: 2rem; }
+  .page-hero-photo { color: var(--ink); }
+  .page-hero-photo .photo-shade { background: none; }
+  .page-hero-photo > img { opacity: .14; }
+  main:not(:has(.home-hero)) .page-hero-photo p { color: var(--muted); }
+
+  @media (max-width: 991px) {
+    .solution-collection .service-group > .section-heading { padding-left: 2.5rem; }
+    .collection-content { padding-right: 2.5rem; }
+    .collection-entries .service-entry.editorial-row { grid-template-columns: 1fr; }
+    .collection-entries .service-entry .text-link { grid-column: 1; grid-row: auto; justify-self: start; }
+  }
+  @media (max-width: 767px) {
+    .institution-hero { height: 360px; min-height: 0; }
+    main:not(:has(.home-hero)) .institution-hero > .container { padding-inline: 1.25rem; padding-bottom: 2rem; }
+    .business-hero > img { object-position: 75% center; }
+    .business-shade { background: rgb(0 0 0 / .35); }
+    main:not(:has(.home-hero)) .solution-collection > .service-group { display: block; }
+    .solution-collection .service-group > .section-heading { position: static; padding: 3rem 1.5rem 2rem; }
+    main .solution-collection .service-group .section-heading h2 { font-size: 1.75rem; }
+    .collection-content { padding: 0 1.5rem 3rem; border-left: 0; }
+    .collection-image.image-reveal { height: 16rem; margin-bottom: 1.5rem; }
+    main .collection-entries .service-entry .row-title { font-size: 1.5rem; }
+    .collection-entries .service-entry .row-copy { font-size: .875rem; }
+    .collection-entries .service-entry.editorial-row { gap: 1rem; padding-block: 1.75rem; }
+    .topic-screening-aside { padding: 2rem 1.5rem; }
+    .topic-methods { padding-left: 1.5rem; }
+    .topic-methods li::before { left: -1.78rem; top: 2rem; }
+    .wealth-overview { grid-template-columns: 1fr; gap: 2rem; }
+    .wealth-overview > .image-reveal { height: 19rem; }
+    main .wealth-introduction h2 { font-size: 1.75rem; }
+    main .wealth-introduction .prose p.body-large { font-size: .875rem; }
+    .wealth-market-register .editorial-row { grid-template-columns: 1.5rem 1fr; gap: 1rem; }
+    main .wealth-market-register .row-title { font-size: 1.5rem; }
+    .wealth-market-register .row-copy { grid-column: 2; font-size: .875rem; }
+  }
+}

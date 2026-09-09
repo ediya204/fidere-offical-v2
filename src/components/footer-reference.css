@@ -1,0 +1,137 @@
+@layer reset, base, components, responsive, reference;
+@layer reference {
+  /* The public reference uses a 70rem content area, four navigation columns,
+     12px uppercase links and 5rem vertical padding. FIDERE retains its own
+     identity and the requested white background. */
+  .site-footer {
+    padding-block: 80px;
+    background: #fff;
+    color: #17334a;
+    border-top: 1px solid #dededb;
+    font-family: var(--sans);
+  }
+  .site-footer > .container { max-width: 1200px; width: 100%; padding-inline: 40px; }
+  .site-footer .footer-main {
+    display: grid;
+    grid-template-columns: 176px minmax(0, 1fr);
+    gap: 56px;
+    padding-bottom: 58px;
+    border-bottom: 1px solid #c8ccce;
+  }
+  .site-footer .footer-identity .brand { display: block; width: 160px; }
+  .site-footer .footer-identity .brand img { width: 100%; height: auto; filter: none; }
+  .site-footer .footer-identity > p {
+    margin-top: 25px;
+    color: #17334a;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1.35;
+    white-space: pre-line;
+  }
+  .site-footer .footer-office { display: block; padding-top: 0; margin-top: 32px; border: 0; }
+  .site-footer .footer-office .eyebrow { margin-bottom: 12px; color: inherit; font-size: 10px; letter-spacing: 2px; }
+  .site-footer .footer-office address { max-width: 240px; margin-bottom: 14px; color: #616c74; font-size: 11px; line-height: 1.7; }
+  .site-footer .footer-office > a { display: block; width: fit-content; color: #17334a; font-size: 11px; line-height: 2; }
+  .site-footer .footer-nav {
+    display: grid;
+    grid-template-columns: .85fr 1.2fr 1fr 1.15fr;
+    align-items: start;
+    gap: 28px;
+  }
+  .site-footer .footer-nav-column { display: grid; align-content: start; gap: 32px; min-width: 0; }
+  .site-footer .footer-nav-heading {
+    margin: 0 0 16px;
+    padding-left: 10px;
+    border-left: 1px solid #17334a;
+    color: inherit;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+  .site-footer .footer-nav-heading > a { display: block; width: fit-content; }
+  .site-footer .footer-topic-links { display: grid; gap: 12px; margin: 0; padding: 0; list-style: none; }
+  .site-footer .footer-topic-links > li { margin: 0; padding: 0; list-style: none; }
+  .site-footer .footer-topic-links a {
+    display: block;
+    width: fit-content;
+    max-width: 100%;
+    color: #44525e;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+  .site-footer a:hover { text-decoration: underline; text-underline-offset: 4px; }
+  .site-footer a:focus-visible { outline: 2px solid #17334a; outline-offset: 5px; }
+  .site-footer .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 22px 32px;
+    padding-top: 25px;
+    color: #17334a;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 1.5;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+  .site-footer .footer-bottom nav { display: flex; width: auto; order: 0; gap: 16px 24px; flex-wrap: wrap; }
+  .site-footer .footer-bottom nav a { font-size: inherit; }
+  .site-footer .footer-bottom > span { white-space: normal; }
+  .site-footer .back-top { display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; margin-left: auto; border: 1px solid #c8ccce; border-radius: 50%; color: #17334a; font-size: 20px; }
+  .site-footer .footer-regulatory {
+    display: block;
+    margin-top: 16px;
+    padding: 0;
+    border: 0;
+    color: #66717a;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+  .site-footer .footer-regulatory > span { display: block; min-width: 0; margin-bottom: 8px; color: #44525e; letter-spacing: 1.5px; }
+  .site-footer .footer-regulatory > p { max-width: none; margin: 0; font-size: inherit; font-style: italic; }
+
+  @media (max-width: 1199px) {
+    .site-footer .footer-main { gap: 40px; grid-template-columns: 160px minmax(0, 1fr); }
+    .site-footer .footer-nav { gap: 24px; grid-template-columns: .8fr 1.2fr 1fr 1fr; }
+    .site-footer .footer-topic-links a { letter-spacing: 1px; }
+  }
+  @media (max-width: 991px) {
+    .site-footer { padding-block: 64px; }
+    .site-footer .footer-main { grid-template-columns: 1fr; gap: 40px; }
+    .site-footer .footer-identity { display: grid; grid-template-columns: 1fr 1fr; gap: 20px 40px; }
+    .site-footer .footer-identity > p { margin-top: 0; }
+    .site-footer .footer-office { grid-column: 2; grid-row: 1 / span 2; margin: 0; }
+    .site-footer .footer-nav { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; }
+  }
+  @media (max-width: 767px) {
+    .site-footer { padding-block: 48px; }
+    .site-footer > .container { padding-inline: 20px; }
+    .site-footer .footer-main { gap: 32px; padding-bottom: 24px; }
+    .site-footer .footer-nav { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px 30px; }
+    .site-footer .footer-topic-links { gap: 6px; }
+    .site-footer .footer-topic-links a { display: flex; align-items: center; min-height: 32px; font-size: 12px; line-height: 1.5; }
+    .site-footer .footer-bottom { align-items: start; gap: 24px; font-size: 10px; }
+    .site-footer .footer-bottom nav { width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 24px; }
+    .site-footer .footer-bottom nav a { display: flex; align-items: center; min-height: 32px; }
+    .site-footer .footer-regulatory { margin-top: 16px; }
+  }
+  @media (max-width: 479px) {
+    .site-footer .footer-identity { display: block; }
+    .site-footer .footer-identity > p { margin-top: 24px; }
+    .site-footer .footer-office { margin-top: 28px; }
+    .site-footer .footer-nav { grid-template-columns: 1fr; gap: 28px; }
+    .site-footer .footer-nav-column { gap: 28px; }
+    .site-footer .footer-nav-heading { margin-bottom: 12px; font-size: 10px; }
+    .site-footer .footer-topic-links a { font-size: 10px; letter-spacing: 2px; }
+    .site-footer .footer-bottom > span { max-width: calc(100% - 65px); }
+  }
+}

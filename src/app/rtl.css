@@ -1,0 +1,88 @@
+@layer reset, base, components, responsive, reference;
+/* Arabic shares the site's dimensions and imagery. Never mirror photography. */
+@layer reference {
+  html[lang=ar] { --serif: var(--font-arabic-editorial), "Noto Naskh Arabic", serif; --sans: var(--font-arabic-body), Tahoma, Arial, sans-serif; }
+  /* Tracking disrupts Arabic joining; use natural spacing throughout. */
+  html[lang=ar] * { letter-spacing: normal !important; }
+  html[lang=ar] body { line-height: 1.8; }
+  html[lang=ar] :is(h1,h2,h3,h4), html[lang=ar] main :is(h1,h2,h3,h4), html[lang=ar] .home-page .hero-content h1 { line-height: 1.4; }
+  html[lang=ar] .home-page .hero-content h1 { line-height: 1.05; }
+  html[lang=ar] .home-page .hero-motto { line-height: 1.9; }
+  html[lang=ar] :is(p,li,.row-copy,.legal-note,.body-large) { line-height: 1.85; }
+  html[lang=ar] .site-header .desktop-navigation a { font-size: 13px; }
+  html[lang=ar] :is(.eyebrow,.section-label,.footer-topic-links a) { line-height: 1.7; }
+  html[lang=ar] :is(.footer-topic-links a,.footer-nav-heading,.footer-bottom,.footer-regulatory) { font-size: 12px; }
+  html[lang=ar] :is(.mega-menu-statement,.mobile-menu nav a,.persona-tabs button) { line-height: 1.5; }
+  html[dir=rtl] :is(.persona-tabs button,.location-switcher button,.hero-location,.wi-article-body>section h2) { text-align: start; }
+  html[dir=rtl] .arrow, html[dir=rtl] :is(.topic-arrow,.business-hero-index>a>span,.hero-secondary>span,.login-link>span) { scale: -1 1; }
+  html[dir=rtl] :is(.text-link,.desktop-navigation a,.persona-tabs button)::after { transform-origin: right; }
+  html[dir=rtl] :is(.location-coordinate,.licence-number,.topic-licence,.fidere-mark,[href^="tel:"],address) { direction: ltr; unicode-bidi: isolate; }
+  html[dir=rtl] :is([href^="mailto:"],.source-caption [dir=ltr]) { unicode-bidi: isolate; }
+  html[dir=rtl] [href^="mailto:"]:not(.text-link) { direction: ltr; }
+  html[dir=rtl] .site-footer .footer-office > a { margin-inline-end: auto; }
+  html[dir=rtl] .site-header .desktop-navigation { margin-left: 0; margin-right: auto; }
+  html[dir=rtl] .site-header .mega-menu-intro { padding-right: 0; padding-left: 28px; border-right: 0; border-left: 1px solid var(--line); }
+  html[dir=rtl] .mobile-menu .mobile-topic-row > a { padding-right: 0; padding-left: 12px; }
+  html[dir=rtl] .mobile-topic-links { padding-left: 0; padding-right: 35px; }
+  html[dir=rtl] .mobile-menu-bottom > span { margin-left: 0; margin-right: auto; }
+  html[dir=rtl] .site-footer .footer-nav-heading { padding-left: 0; padding-right: 10px; border-left: 0; border-right: 1px solid #17334a; }
+  html[dir=rtl] .site-footer .back-top { margin-left: 0; margin-right: auto; }
+  html[dir=rtl] .business-hero-heading { padding-right: 0; padding-left: 4rem; }
+  html[dir=rtl] .business-hero-index { border-left: 0; border-right: 1px solid rgb(255 255 255 / .6); padding-left: 0; padding-right: 3rem; }
+  html[dir=rtl] .business-hero-index::before { inset: 0 0 0 -100vw; }
+  html[dir=rtl] .solution-collection .service-group > .section-heading { padding-inline: max(2.5rem, calc((100vw - 70rem) / 2)) 2rem; }
+  html[dir=rtl] .collection-content { padding-inline: 2rem max(2.5rem, calc((100vw - 80rem) / 2)); border-left: 0; border-right: 1px solid var(--line); }
+  html[dir=rtl] .topic-methods { padding-left: 0; padding-right: 2rem; border-left: 0; border-right: 1px solid var(--line); }
+  html[dir=rtl] .topic-methods li::before { left: auto; right: -2.28rem; }
+  html[dir=rtl] :is(.topic-governance-heading>p,.topic-policy-footer .topic-policy-context) { margin-left: 0; margin-right: auto; }
+  html[dir=rtl] .transaction-sequence { margin-left: 0; margin-right: 25%; }
+  html[dir=rtl] .topic-arrow { margin-left: 0; margin-right: 12px; }
+  html[dir=rtl] .related-row .text-link { padding-right: 0; padding-left: 45px; }
+  html[dir=rtl] .home-page .persona-tabs button { border-left: 0; border-right: 1px solid var(--line); }
+  html[dir=rtl] .home-page .persona-panel { margin-left: 0; margin-right: 152px; padding-right: 0; padding-left: 24px; }
+  html[dir=rtl] .licence-block { border-left: 0; border-right: 1px solid var(--line); padding-left: 0; padding-right: 55px; }
+  html[dir=rtl] .form-field label span { margin-left: 0; margin-right: 5px; }
+  html[dir=rtl] .form-field :is(input,textarea,select) { text-align: start; }
+  html[dir=rtl] .form-field :is(input,textarea)::placeholder { direction: rtl; text-align: right; }
+  html[dir=rtl] .enquiry-form pre { font-family: var(--sans); }
+  html[dir=rtl] .skip-link { left: auto; right: 20px; }
+  /* Published legal documents retain their original language and direction. */
+  html[lang=ar] .policy-document[lang=en] { --sans: var(--font-body), Arial, sans-serif; --serif: var(--font-editorial), Georgia, serif; text-align: left; }
+  html[lang=ar] .policy-document[lang=en] :is(p,li,h2,h3,h4) { line-height: 1.67; }
+  @media (max-width: 1280px) {
+    html[dir=rtl] .home-page .persona-panel { margin-right: 114px; padding-left: 18px; }
+    html[dir=rtl] .licence-block { padding-right: 35px; }
+  }
+  @media (max-width: 1100px) {
+    html[dir=rtl] .site-header .header-primary-row > .menu-toggle { margin-left: 0; margin-right: auto; }
+  }
+  @media (max-width: 991px) {
+    html[dir=rtl] .business-hero-heading { padding-inline: 0; }
+    html[dir=rtl] .business-hero-index { padding-inline: 0; border-right: 0; }
+    html[dir=rtl] .business-hero-index::before { inset: 0 -2.25rem; }
+    html[dir=rtl] .solution-collection .service-group > .section-heading { padding-inline-start: 2.5rem; }
+    html[dir=rtl] .collection-content { padding-inline-end: 2.5rem; }
+    html[dir=rtl] .home-page .persona-tabs button:first-child { border-right: 0; padding-inline-start: 0; padding-inline-end: 18px; }
+    html[dir=rtl] .home-page .persona-tabs button:first-child::after { right: 0; left: 18px; }
+    html[dir=rtl] .home-page .persona-panel { margin-right: 0; padding-left: 0; }
+    html[dir=rtl] .licence-block { padding-right: 25px; }
+  }
+  @media (max-width: 767px) {
+    html[dir=rtl] .business-hero-index::before { inset-inline: -1.25rem; }
+    html[dir=rtl] .solution-collection .service-group > .section-heading { padding-inline: 1.5rem; }
+    html[dir=rtl] .collection-content { padding-inline: 1.5rem; border-right: 0; }
+    html[dir=rtl] .topic-methods { padding-right: 1.5rem; }
+    html[dir=rtl] .topic-methods li::before { right: -1.78rem; }
+    html[dir=rtl] .topic-document-register dd { padding-left: 0; padding-right: 33px; }
+    html[dir=rtl] .transaction-sequence { margin-right: 0; }
+    html[dir=rtl] :is(.succession-intro,.wi-fixed-statement) { text-align: start; }
+    html[dir=rtl] .related-row .text-link { padding-left: 0; }
+    html[dir=rtl] .chapter-mobile > summary span:first-child { margin-left: 0; margin-right: auto; }
+    html[dir=rtl] .home-page .persona-tabs button { border-right: 0; padding-inline: 0; }
+    html[dir=rtl] .home-page .persona-tabs button:first-child { padding-inline: 0; }
+    html[dir=rtl] .home-page .persona-tabs button:first-child::after { left: 0; }
+    html[dir=rtl] .home-page .licence-block { border-right: 0; padding-inline: 0; }
+    html[dir=rtl] .licence-block .fidere-mark { margin: 0 auto 0 0; }
+    html[dir=rtl] .wi-reading-list details p { padding-left: 0; padding-right: 36px; }
+  }
+}
