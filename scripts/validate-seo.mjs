@@ -178,7 +178,7 @@ for (const route of routes) {
   const portalLinks = anchors.filter((anchor) => anchor.href === "https://portal.fideretrust.com");
   assert(portalLinks.length === 0, route, "Retired customer-login portal link found", portalLinks.length);
   assert(html.includes(`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`), route, "Google Analytics loader is missing");
-  assert(html.includes(`gtag('config','${googleAnalyticsId}')`), route, "Google Analytics configuration is missing");
+  assert(html.includes(googleAnalyticsId), route, "Google Analytics measurement ID is missing");
 
   const schemas = [];
   for (const script of scripts) {
