@@ -17,8 +17,8 @@ if (args.some(arg => arg !== '--offline' && !arg.startsWith('--base-url='))) {
 if (base.protocol !== 'http:' || !['127.0.0.1', 'localhost', '[::1]'].includes(base.hostname) || base.username || base.password) {
   throw new Error('Only an unauthenticated localhost HTTP origin is permitted.');
 }
-const languages = ['en', 'zh-hant', 'ar'];
-const languageTags = { en: 'en', 'zh-hant': 'zh-Hant', ar: 'ar' };
+const languages = ['en', 'zh-hant', 'ja', 'ar'];
+const languageTags = { en: 'en', 'zh-hant': 'zh-Hant', ja: 'ja', ar: 'ar' };
 const failures = [];
 const report = {
   checkedAt: new Date().toISOString(),
@@ -214,7 +214,7 @@ async function inspectPages(routes, website) {
     assert(!Object.hasOwn(alternates, 'zh-hans'), 'Retired Simplified Chinese alternate is still exposed', alternates['zh-hans']);
     assert(normalizedUrl(alternates['x-default']) === normalizedUrl(website + routeFor('en', slug)), 'Missing or wrong x-default alternate', alternates['x-default']);
     const ogLocale = meta.find(item => item.property === 'og:locale')?.content;
-    assert(ogLocale === ({ en: 'en_HK', 'zh-hant': 'zh_HK', ar: 'ar_HK' })[locale], 'Open Graph locale mismatch', ogLocale);
+    assert(ogLocale === ({ en: 'en_HK', 'zh-hant': 'zh_HK', ja: 'ja_JP', ar: 'ar_HK' })[locale], 'Open Graph locale mismatch', ogLocale);
     for (const error of errors) failures.push({ scope: route, ...error });
     return { route, locale, status: response.status, lang: htmlAttributes.lang, dir: htmlAttributes.dir, title, description, h1: headings, canonical, alternates, ogLocale, passed: errors.length === 0, errors };
   });
@@ -231,7 +231,7 @@ async function inspectSitemap(routes, website) {
   });
   const expected = new Set(routes.filter(route => slugOf(route) !== 'login').map(route => normalizedUrl(website + route)));
   const actual = new Set(entries.map(entry => normalizedUrl(entry.location)));
-  check(entries.length === 114 && actual.size === 114, 'sitemap', 'Expected 114 unique pages (38 per language)', { entries: entries.length, unique: actual.size });
+  check(entries.length === 152 && actual.size === 152, 'sitemap', 'Expected 152 unique pages (38 per language)', { entries: entries.length, unique: actual.size });
   check([...expected].every(url => actual.has(url)) && [...actual].every(url => expected.has(url)), 'sitemap', 'Sitemap routes differ from the non-login page inventory', { missing: [...expected].filter(url => !actual.has(url)), extra: [...actual].filter(url => !expected.has(url)) });
   const counts = Object.fromEntries(languages.map(locale => [locale, 0]));
   for (const entry of entries) {
@@ -254,7 +254,7 @@ try {
   const manifest = await readJson('.next/prerender-manifest.json');
   const routes = Object.entries(manifest.routes).filter(([route, info]) => info.routeType === 'page' && !route.startsWith('/_')).map(([route]) => route).sort();
   const counts = Object.fromEntries(languages.map(locale => [locale, routes.filter(route => localeOf(route) === locale).length]));
-  check(routes.length === 117, 'route inventory', 'Expected 117 business pages', routes.length);
+  check(routes.length === 156, 'route inventory', 'Expected 156 business pages', routes.length);
   check(!routes.some(route => route === '/zh-hans' || route.startsWith('/zh-hans/')), 'route inventory', 'Retired Simplified Chinese pages are still prerendered', routes.filter(route => route === '/zh-hans' || route.startsWith('/zh-hans/')));
   for (const locale of languages) check(counts[locale] === 39, 'route inventory', `Expected 39 ${locale} pages`, counts[locale]);
   report.buildId = (await read('.next/BUILD_ID')).trim();

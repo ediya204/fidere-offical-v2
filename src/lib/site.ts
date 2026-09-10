@@ -1,15 +1,17 @@
 import { arabicText } from "./i18n/ar";
+import { japaneseText } from "./i18n/ja";
 
-export const locales = ["en", "zh-hant", "ar"] as const;
+export const locales = ["en", "zh-hant", "ja", "ar"] as const;
 export type Locale = (typeof locales)[number];
-export const localeNames: Record<Locale, string> = { en: "EN", "zh-hant": "繁", ar: "العربية" };
+export const localeNames: Record<Locale, string> = { en: "EN", "zh-hant": "繁", ja: "日本語", ar: "العربية" };
 export const localeSeo: Record<Locale, { htmlLang: string; hrefLang: string; openGraph: string }> = {
   en: { htmlLang: "en", hrefLang: "en", openGraph: "en_HK" },
   "zh-hant": { htmlLang: "zh-Hant", hrefLang: "zh-Hant", openGraph: "zh_HK" },
+  ja: { htmlLang: "ja", hrefLang: "ja", openGraph: "ja_JP" },
   ar: { htmlLang: "ar", hrefLang: "ar", openGraph: "ar_HK" },
 };
 export function isLocale(value: string): value is Locale { return locales.includes(value as Locale); }
-export function text(locale: Locale, en: string, traditional: string, _simplified: string, arabic?: string) { return locale === "ar" ? arabic ?? arabicText(en) : locale === "zh-hant" ? traditional : en; }
+export function text(locale: Locale, en: string, traditional: string, _simplified: string, arabic?: string) { return locale === "ar" ? arabic ?? arabicText(en) : locale === "ja" ? japaneseText(en) : locale === "zh-hant" ? traditional : en; }
 export function pathFor(locale: Locale, slug = "") { return locale === "en" ? `/${slug}` : `/${locale}${slug ? `/${slug}` : ""}`; }
 // Verified against the current FIDERE Contact and Regulatory Status pages on 9 September 2026.
 // Keep company facts here; never create page-specific copies of contact details.

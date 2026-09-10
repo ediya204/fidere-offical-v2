@@ -27,7 +27,7 @@ export function Footer({ locale }: { locale: Locale }) {
             </Link>
             <p>{text(locale, "Hong Kong based.\nInternational in perspective.", "立足香港。\n以國際視野，作長遠安排。", "立足香港。\n以国际视野，作长远安排。")}</p>
             <div className="footer-office">
-              <span className="eyebrow">{locale==="ar"?"هونغ كونغ":"HONG KONG"}</span>
+              <span className="eyebrow">{locale==="ar"?"هونغ كونغ":locale==="ja"?"香港":"HONG KONG"}</span>
               <address lang="en" dir="ltr">{company.address}</address>
               <a href={`mailto:${company.email}`}>{company.email}</a>
               <a href={`tel:${company.phoneHref}`}>{company.phone}</a>

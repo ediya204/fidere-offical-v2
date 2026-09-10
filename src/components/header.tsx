@@ -260,6 +260,7 @@ export function Header({ locale }: { locale: Locale }) {
     });
   }
   function topicToggleLabel(label: string, expanded: boolean) {
+    if (locale === "ja") return `${expanded ? "閉じる" : "見る"} ${label}`;
     return text(locale, `${expanded ? "Close" : "Explore"} ${label}`, `${expanded ? "收起" : "展開"}${label}`, `${expanded ? "收起" : "展开"}${label}`, `${expanded ? "إغلاق" : "تصفح"} ${label}`);
   }
   const languageLinks = (
@@ -298,7 +299,7 @@ export function Header({ locale }: { locale: Locale }) {
                       <span className="mega-menu-eyebrow">{label}</span>
                       <p className="mega-menu-statement">{copy(topic.label)}</p>
                       <p className="mega-menu-description">{copy(topic.description)}</p>
-                      <Link className="mega-menu-view-all" href={pathFor(locale, item.slug)} onClick={closeNavigation}>{text(locale, `View all ${label.toLowerCase()}`, `查看全部${label}`, `查看全部${label}`, `عرض جميع ${label}`)}<Arrow /></Link>
+                      <Link className="mega-menu-view-all" href={pathFor(locale, item.slug)} onClick={closeNavigation}>{locale==="ja"?`${label}をすべて見る`:text(locale, `View all ${label.toLowerCase()}`, `查看全部${label}`, `查看全部${label}`, `عرض جميع ${label}`)}<Arrow /></Link>
                     </div>
                     <div className={`mega-menu-topics mega-menu-topics-${topic.groups.length}`}>
                       {topic.groups.map((group, index) => <section className="mega-menu-topic-group" key={group.label.en} aria-labelledby={`topic-${item.slug}-group-${index}`}>
@@ -337,7 +338,7 @@ export function Header({ locale }: { locale: Locale }) {
             </div>
             <div id={`mobile-topic-${item.slug}`} className="mobile-topic-links" hidden={!expanded}>
               <p className="mobile-topic-description">{copy(topic.description)}</p>
-              <Link className="mobile-topic-view-all" href={pathFor(locale, item.slug)} onClick={closeMenu}>{text(locale, `View all ${label.toLowerCase()}`, `查看全部${label}`, `查看全部${label}`, `عرض جميع ${label}`)}<Arrow /></Link>
+              <Link className="mobile-topic-view-all" href={pathFor(locale, item.slug)} onClick={closeMenu}>{locale==="ja"?`${label}をすべて見る`:text(locale, `View all ${label.toLowerCase()}`, `查看全部${label}`, `查看全部${label}`, `عرض جميع ${label}`)}<Arrow /></Link>
               {topic.groups.map((group, groupIndex) => <section key={group.label.en} className="mobile-topic-group" aria-labelledby={`mobile-topic-${item.slug}-group-${groupIndex}`}>
                 <h3 id={`mobile-topic-${item.slug}-group-${groupIndex}`}>{copy(group.label)}</h3>
                 {group.links.map((link) => <Link key={link.slug} href={pathFor(locale, `${item.slug}/${link.slug}`)} onClick={closeMenu} aria-current={currentSlug === `${item.slug}/${link.slug}` ? "page" : undefined}>{copy(link)}</Link>)}
@@ -346,7 +347,7 @@ export function Header({ locale }: { locale: Locale }) {
           </div>;
         })}
       </nav>
-      <div className="mobile-menu-bottom">{languageLinks}<span>{locale==="ar"?"هونغ كونغ":"HONG KONG"}</span></div>
+      <div className="mobile-menu-bottom">{languageLinks}<span>{locale==="ar"?"هونغ كونغ":locale==="ja"?"香港":"HONG KONG"}</span></div>
     </dialog>
   </>;
 }

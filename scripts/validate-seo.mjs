@@ -9,6 +9,7 @@ const googleAnalyticsId = "G-DXNG1F7QFP";
 const localeConfig = {
   en: { prefix: "", html: "en", href: "en", og: "en_HK" },
   "zh-hant": { prefix: "/zh-hant", html: "zh-Hant", href: "zh-Hant", og: "zh_HK" },
+  ja: { prefix: "/ja", html: "ja", href: "ja", og: "ja_JP" },
   ar: { prefix: "/ar", html: "ar", href: "ar", og: "ar_HK" },
 };
 const failures = [];
@@ -48,6 +49,7 @@ function normalizedUrl(value) {
 
 function localeOf(route) {
   if (route === "/zh-hant" || route.startsWith("/zh-hant/")) return "zh-hant";
+  if (route === "/ja" || route.startsWith("/ja/")) return "ja";
   if (route === "/ar" || route.startsWith("/ar/")) return "ar";
   return "en";
 }
@@ -77,10 +79,10 @@ const routes = Object.entries(manifest.routes)
   .map(([route]) => route)
   .sort();
 
-assert(routes.length === 117, "route inventory", "Expected 117 content and assistance pages", routes.length);
+assert(routes.length === 156, "route inventory", "Expected 156 content and assistance pages", routes.length);
 assert(!routes.some((route) => route === "/zh-hans" || route.startsWith("/zh-hans/")), "route inventory", "Simplified Chinese routes are still prerendered");
 
-const localeCounts = { en: 0, "zh-hant": 0, ar: 0 };
+const localeCounts = { en: 0, "zh-hant": 0, ja: 0, ar: 0 };
 const titles = new Map();
 const descriptions = new Map();
 let organizationSchemas = 0;
@@ -216,9 +218,9 @@ for (const route of routes) {
   pageResults.push({ route, locale, title: titleMatches[0], canonical, indexable: !login, ogType: og.type, schemas: schemaNodes.map((node) => node["@type"]) });
 }
 
-assert(JSON.stringify(localeCounts) === JSON.stringify({ en: 39, "zh-hant": 39, ar: 39 }), "route inventory", "Wrong page count by locale", localeCounts);
+assert(JSON.stringify(localeCounts) === JSON.stringify({ en: 39, "zh-hant": 39, ja: 39, ar: 39 }), "route inventory", "Wrong page count by locale", localeCounts);
 assert(organizationSchemas === 1 && websiteSchemas === 1, "structured data", "Organization and WebSite schemas must occur exactly once", { organizationSchemas, websiteSchemas });
-assert(breadcrumbSchemas === 75, "structured data", "Expected BreadcrumbList on 75 localized detail pages", breadcrumbSchemas);
+assert(breadcrumbSchemas === 100, "structured data", "Expected BreadcrumbList on 100 localized detail pages", breadcrumbSchemas);
 
 const sitemapXml = fs.readFileSync(path.join(out, "sitemap.xml"), "utf8");
 const sitemapEntries = [...sitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi)].map((match) => {
@@ -230,7 +232,7 @@ const sitemapEntries = [...sitemapXml.matchAll(/<url\b[^>]*>([\s\S]*?)<\/url>/gi
 const expectedSitemapRoutes = routes.filter((route) => slugOf(route) !== "login");
 const expectedSitemapUrls = new Set(expectedSitemapRoutes.map((route) => normalizedUrl(`${origin}${route}`)));
 const actualSitemapUrls = new Set(sitemapEntries.map((entry) => normalizedUrl(entry.location)));
-assert(sitemapEntries.length === 114 && actualSitemapUrls.size === 114, "sitemap", "Expected 114 unique Sitemap URLs", { entries: sitemapEntries.length, unique: actualSitemapUrls.size });
+assert(sitemapEntries.length === 152 && actualSitemapUrls.size === 152, "sitemap", "Expected 152 unique Sitemap URLs", { entries: sitemapEntries.length, unique: actualSitemapUrls.size });
 assert([...expectedSitemapUrls].every((url) => actualSitemapUrls.has(url)) && [...actualSitemapUrls].every((url) => expectedSitemapUrls.has(url)), "sitemap", "Sitemap URL inventory mismatch");
 for (const entry of sitemapEntries) {
   const route = new URL(entry.location).pathname;

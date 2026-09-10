@@ -53,6 +53,7 @@
  .body-large { font-size: 20px; line-height: 1.65; }
  .legal-note { color: var(--muted); font-size: 13px; line-height: 1.8; margin-block: 28px; max-width: 800px; }
  :lang(zh-hant) { --serif: 'Songti TC', 'Noto Serif CJK TC', serif; }
+ :lang(ja) { --serif: 'Yu Mincho', 'Hiragino Mincho ProN', 'Noto Serif CJK JP', serif; --sans: var(--font-body), 'Hiragino Sans', 'Yu Gothic', 'Noto Sans CJK JP', sans-serif; }
  html:not([lang=en]) h1, html:not([lang=en]) h2 { line-height: 1.28; letter-spacing: -.015em; }
  html:not([lang=en]) .hero-content h1 { line-height: 1.24; }
 }
@@ -261,11 +262,18 @@
  .submit-button { background: var(--navy); color: var(--paper); padding: 18px 26px; display: inline-flex; gap: 55px; align-items: center; font-size: 13px; margin-block: 30px 14px; transition: background .5s; }
  .submit-button .arrow { color: #f3f0ea; }
  .submit-button:hover { background: var(--red); }
+ .submit-button:disabled { cursor: wait; opacity: .68; }
+ .form-honeypot { position: absolute !important; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+ .submission-status:empty { display: none; }
  .draft-result { margin-top: 38px; border-top: 1px solid var(--line); padding-top: 30px; }
  .draft-result h3 { font-size: 31px; margin-bottom: 16px; }
  .draft-result p { color: var(--muted); font-size: 13px; }
  .draft-actions { display: flex; gap: 30px; flex-wrap: wrap; margin-block: 15px; }
  .draft-actions button { font-size: 12px; text-decoration: underline; }
+ .submission-reference { margin-top: 15px; }
+ .submission-reference strong { color: var(--ink); font-weight: 600; letter-spacing: .05em; }
+ .submission-error h3 { color: var(--red); }
+ .submission-error .draft-actions button { display: inline-flex; align-items: center; gap: 25px; color: var(--ink); }
  .draft-result details { font-size: 12px; }
  .draft-result summary { cursor: pointer; padding-block: 10px; }
  .draft-result pre { white-space: pre-wrap; overflow-wrap: anywhere; font: 13px/1.8 var(--sans); padding-block: 18px; }

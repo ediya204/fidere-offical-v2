@@ -30,7 +30,7 @@ const config: NextConfig = {
               destination: "/solutions/equity-asset-custody",
               permanent: true,
             },
-            ...["zh-hant", "ar"].map((locale) => ({
+            ...["zh-hant", "ja", "ar"].map((locale) => ({
               source: `/${locale}/solutions/equity-custody`,
               destination: `/${locale}/solutions/equity-asset-custody`,
               permanent: true,

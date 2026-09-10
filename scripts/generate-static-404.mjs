@@ -54,6 +54,22 @@ const messages = {
     cancel: "取消自動返回",
     home: "首頁",
   },
+  ja: {
+    htmlLang: "ja",
+    dir: "ltr",
+    title: "ページが見つかりません | FIDERE TRUST",
+    navigation: "言語",
+    eyebrow: "FIDERE TRUST · エラー 404",
+    heading: "ページが見つかりません。",
+    description: "URLが変更されたか、ページが利用できなくなった可能性があります。",
+    timer: "自動的にホームへ戻ります",
+    timerAnnouncement: "5秒後にホームページへ移動します。",
+    cancelled: "自動移動をキャンセルしました",
+    cancelledAnnouncement: "自動移動をキャンセルしました。",
+    returnNow: "今すぐホームページへ戻る",
+    cancel: "自動移動をキャンセル",
+    home: "ホーム",
+  },
   ar: {
     htmlLang: "ar",
     dir: "rtl",
@@ -89,7 +105,7 @@ const document = `<!DOCTYPE html>
   <script>
     (() => {
       const firstSegment = location.pathname.toLowerCase().split("/").filter(Boolean)[0];
-      const locale = firstSegment === "ar" ? "ar" : firstSegment === "zh-hant" ? "zh-hant" : "en";
+      const locale = firstSegment === "ar" ? "ar" : firstSegment === "ja" ? "ja" : firstSegment === "zh-hant" ? "zh-hant" : "en";
       document.documentElement.lang = locale === "zh-hant" ? "zh-Hant" : locale;
       document.documentElement.dir = locale === "ar" ? "rtl" : "ltr";
       window.__fidereNotFoundLocale = locale;
@@ -105,6 +121,7 @@ const document = `<!DOCTYPE html>
       <nav class="not-found-languages" id="not-found-languages" aria-label="Language">
         <a data-locale-home="en" href="https://www.fideretrust.com/">EN</a>
         <a data-locale-home="zh-hant" href="https://www.fideretrust.com/zh-hant">繁</a>
+        <a data-locale-home="ja" href="https://www.fideretrust.com/ja" lang="ja">日本語</a>
         <a data-locale-home="ar" href="https://www.fideretrust.com/ar" lang="ar">العربية</a>
       </nav>
     </div>

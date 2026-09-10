@@ -94,7 +94,7 @@ export function LegalPage({ locale, slug }: { locale: Locale; slug: string }) {
             {text(locale, "Published source", "公佈來源", "公布来源")}: {" "}
             <a href={document.sourceUrl} target="_blank" rel="noopener noreferrer" lang="en" dir="ltr">{company.name} · {item.en}</a>
             <br />
-            {text(locale, "Text retrieved", "原文讀取日期", "原文读取日期")}: <time dateTime={document.retrievedAt}>{locale==="ar"?"٩ سبتمبر ٢٠٢٦":"9 September 2026"}</time>
+            {text(locale, "Text retrieved", "原文讀取日期", "原文读取日期")}: <time dateTime={document.retrievedAt}>{locale==="ar"?"٩ سبتمبر ٢٠٢٦":locale==="ja"?"2026年9月9日":"9 September 2026"}</time>
           </p>
           <TextLink href={pathFor(locale, "contact")}>
             {text(locale, "Contact us about this document", "就此文件聯絡我們", "就此文件联系我们")}

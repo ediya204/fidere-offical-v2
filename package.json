@@ -10,6 +10,9 @@
     "favicon:generate": "node scripts/generate-favicon.mjs",
     "404:generate": "node scripts/generate-static-404.mjs",
     "seo:validate": "node scripts/validate-seo.mjs",
+    "ja:validate": "node scripts/validate-japanese.mjs",
+    "enquiry:test": "node --test scripts/enquiry.test.mjs",
+    "enquiry:deploy": "wrangler deploy --config wrangler.enquiry.jsonc",
     "start": "next start --hostname 127.0.0.1 --port 3000",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit"
