@@ -14,7 +14,7 @@
   html[lang=ar] :is(.footer-topic-links a,.footer-nav-heading,.footer-bottom,.footer-regulatory) { font-size: 12px; }
   html[lang=ar] :is(.mega-menu-statement,.mobile-menu nav a,.persona-tabs button) { line-height: 1.5; }
   html[dir=rtl] :is(.persona-tabs button,.location-switcher button,.hero-location,.wi-article-body>section h2) { text-align: start; }
-  html[dir=rtl] .arrow, html[dir=rtl] :is(.topic-arrow,.business-hero-index>a>span,.hero-secondary>span,.login-link>span) { scale: -1 1; }
+  html[dir=rtl] .arrow, html[dir=rtl] :is(.topic-arrow,.business-hero-index>a>span,.hero-secondary>span) { scale: -1 1; }
   html[dir=rtl] :is(.text-link,.desktop-navigation a,.persona-tabs button)::after { transform-origin: right; }
   html[dir=rtl] :is(.location-coordinate,.licence-number,.topic-licence,.fidere-mark,[href^="tel:"],address) { direction: ltr; unicode-bidi: isolate; }
   html[dir=rtl] :is([href^="mailto:"],.source-caption [dir=ltr]) { unicode-bidi: isolate; }

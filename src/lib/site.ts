@@ -22,7 +22,6 @@ export const company = {
   phoneHref: "+85251286593",
   licence: "TC010497",
   website: "https://www.fideretrust.com",
-  portal: "https://portal.fideretrust.com",
 };
 export const navigation = [
   { slug: "about", en: "About", tc: "關於我們", sc: "关于我们" },

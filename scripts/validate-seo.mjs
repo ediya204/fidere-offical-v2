@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const out = path.join(root, "out");
 const origin = "https://www.fideretrust.com";
+const googleAnalyticsId = "G-DXNG1F7QFP";
 const localeConfig = {
   en: { prefix: "", html: "en", href: "en", og: "en_HK" },
   "zh-hant": { prefix: "/zh-hant", html: "zh-Hant", href: "zh-Hant", og: "zh_HK" },
@@ -175,10 +176,9 @@ for (const route of routes) {
   assert(twitter.image === og.image && twitter.imageAlt === og.imageAlt, route, "Twitter image metadata mismatch", twitter);
 
   const portalLinks = anchors.filter((anchor) => anchor.href === "https://portal.fideretrust.com");
-  assert(portalLinks.length === 2, route, "Expected desktop and mobile portal links", portalLinks.length);
-  for (const portalLink of portalLinks) {
-    assert(portalLink.target === "_blank" && portalLink.rel?.includes("noopener") && portalLink.rel?.includes("noreferrer"), route, "Unsafe or incomplete portal link attributes", portalLink);
-  }
+  assert(portalLinks.length === 0, route, "Retired customer-login portal link found", portalLinks.length);
+  assert(html.includes(`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`), route, "Google Analytics loader is missing");
+  assert(html.includes(`gtag('config','${googleAnalyticsId}')`), route, "Google Analytics configuration is missing");
 
   const schemas = [];
   for (const script of scripts) {

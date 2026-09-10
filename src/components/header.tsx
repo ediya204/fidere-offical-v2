@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { company, locales, localeNames, localeSeo, type Locale, navigation, pathFor, text } from "@/lib/site";
+import { locales, localeNames, localeSeo, type Locale, navigation, pathFor, text } from "@/lib/site";
 import { Arrow } from "./editorial";
 import "./header-navigation.css";
 
@@ -272,7 +272,6 @@ export function Header({ locale }: { locale: Locale }) {
       <div className="header-inner">
         <div className="header-utility-row">
           <div className="header-utilities">
-            <a className="login-link" href={company.portal} target="_blank" rel="noopener noreferrer" onClick={closeNavigation} aria-label={text(locale,"Client login — opens in a new tab","客戶登入——在新分頁開啟","客户登录——在新标签页打开","دخول العملاء — يفتح في علامة تبويب جديدة")}>{text(locale, "Login", "客戶登入", "客户登录", "دخول العملاء")}<span aria-hidden="true">↗</span></a>
             {languageLinks}
           </div>
         </div>
@@ -347,7 +346,7 @@ export function Header({ locale }: { locale: Locale }) {
           </div>;
         })}
       </nav>
-      <div className="mobile-menu-bottom">{languageLinks}<a href={company.portal} target="_blank" rel="noopener noreferrer" onClick={closeMenu} aria-label={text(locale,"Client login — opens in a new tab","客戶登入——在新分頁開啟","客户登录——在新标签页打开","دخول العملاء — يفتح في علامة تبويب جديدة")}>{text(locale, "Client access", "客戶登入", "客户登录", "دخول العملاء")} ↗</a><span>{locale==="ar"?"هونغ كونغ":"HONG KONG"}</span></div>
+      <div className="mobile-menu-bottom">{languageLinks}<span>{locale==="ar"?"هونغ كونغ":"HONG KONG"}</span></div>
     </dialog>
   </>;
 }

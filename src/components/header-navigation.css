@@ -75,7 +75,6 @@
   .site-header .brand img, .mobile-menu .brand img { display: block; width: 100%; height: auto; filter: none; }
   .site-header .header-utilities { display: flex; gap: 25px; align-items: center; }
   .site-header .header-utilities > .language-options { display: flex; gap: 14px; font: 500 12px/1 var(--sans); letter-spacing: .04em; }
-  .site-header .header-utilities > .login-link { display: flex; gap: 8px; margin: 0; padding: 0; border: 0; font: 500 12px/1 var(--sans); letter-spacing: .08em; text-transform: uppercase; }
   .site-header .language-options a { padding-block: 12px; }
   .site-header .desktop-navigation { display: flex; align-items: center; height: 100%; gap: 22px; margin-left: auto; }
   .site-header .desktop-navigation > a, .site-header .nav-topic > .nav-topic-link { font: 600 13px/1 var(--sans); letter-spacing: 2px; text-transform: uppercase; padding-block: 20px; }
